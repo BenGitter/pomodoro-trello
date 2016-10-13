@@ -1,0 +1,64 @@
+body{
+  padding: 10px 0;
+  background: rgb(150,150,230);
+}
+
+body,html{
+  width: 100%;
+  height: 100%;
+}
+
+#trelloPicker{
+  min-height: 100%;
+  margin: 0 10px;
+  background-color: white;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+#trelloPicker .glyphicon-remove{
+  padding: 20px 10px;
+  cursor: pointer;
+}
+#back{
+  padding: 20px 10px;
+  position: relative;
+  top: 15px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.board{
+  background-color: #ccc;
+  text-align: center;
+  padding: 20px 0 30px 0;
+  border: 5px solid white;
+  cursor: pointer;
+}
+
+.board:hover{
+  background-color: #aaa;
+}
+
+.list{
+  background-color: #999;
+  cursor: pointer;
+  border: 5px solid white;
+  padding: 20px 0 10px 0;
+  text-align: center;
+}
+
+.list:hover{
+  background-color: #aaa;
+}
+
+.card{
+  background-color: #aaa;
+  cursor: pointer;
+  border: 5px solid white;
+  padding: 10px 0 10px 0;
+  text-align: center;
+}
+.card:hover{
+  background-color: #ccc;
+}
