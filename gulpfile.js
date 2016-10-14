@@ -12,13 +12,13 @@ gulp.task('browser-sync', function() {
 
 gulp.task('scripts', function() {
   return gulp.src('./js/*')
-    .pipe(concat('all.js'))
+    .pipe(concat('script.js'))
     .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('styles', function() {
   return gulp.src('./css/*')
-    .pipe(concat('all.css'))
+    .pipe(concat('style.css'))
     .pipe(gulp.dest('./dist/'));
 });
 
@@ -27,11 +27,11 @@ gulp.task('index', function(){
     .pipe(gulp.dest("./dist/"));
 });
 
-gulp.task('default', ['browser-sync', 'scripts', 'styles', 'index'], function () {
-
-    gulp.watch("./js/*", ["scripts"]);
-    gulp.watch("./css/*", ["styles"]);
-    gulp.watch("./index.html", ["index"]);
-    gulp.watch('./dist/*', bs.reload);
-
+gulp.task('watch', function(){
+  gulp.watch("./js/*", ["scripts"]);
+  gulp.watch("./css/*", ["styles"]);
+  gulp.watch("./index.html", ["index"]);
+  gulp.watch('./dist/*', bs.reload);
 });
+
+gulp.task('default', ['browser-sync', 'scripts', 'styles', 'index', 'watch']);
