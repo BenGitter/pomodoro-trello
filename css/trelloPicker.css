@@ -1,19 +1,10 @@
-body{
-  padding: 10px 0;
-  background: rgb(150,150,230);
-}
-
-body,html{
-  width: 100%;
-  height: 100%;
-}
-
 #trelloPicker{
   min-height: 100%;
   margin: 0 10px;
   background-color: white;
   border-radius: 5px;
   padding-bottom: 20px;
+  display: none;
 }
 
 #trelloPicker .glyphicon-remove{

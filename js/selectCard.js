@@ -1,18 +1,25 @@
-
 // Trell.rest("GET"|"POST"|"PUT"|"DELETE", path, params (default {}), succes, error)
-
 
   var selectCard = (function(){
     var Boards = [];
     var Lists = [];
     var Cards = [];
 
-    var selectedBoard = {};
-    var selectedList = {};
-    var selectedCard = {};
+    var selectedBoard = {
+      name: "Board"
+    };
+    var selectedList = {
+      name: "List"
+    };
+    var selectedCard = {
+      name: "Select Trello card..."
+    };
 
     $content = $("#content");
     $back = $("#back");
+    $trelloCard = $("#trelloCard");
+    $trelloPicker = $("#trelloPicker");
+    $startScreen = $("#startScreen");
 
     function init(){
       authorize();
@@ -24,19 +31,32 @@
 
       // Handle events top bar
       events();
+
+      // Fill trello card
+      displayTrelloCard();
     }
 
     function events(){
+      // Close pop-up
       $(".glyphicon-remove").on("click", function(){
-        $("#trelloPicker").hide();
+        displayTrelloCard();
       });
 
+      // Go back to lists or boards
       $("#back").on("click", function(){
         if($(this).html() === "Back to lists"){
           displayLists(selectedBoard.id);
         }else{
           displayBoards();
         }
+      });
+
+      // Open pop-up
+      $trelloCard.on("click", function(){
+        $trelloPicker.fadeIn(300, function(){
+          $trelloPicker.css("display", "block");
+        });
+        $startScreen.css("display", "none");
       });
     }
 
@@ -156,13 +176,22 @@
         // Add event listener
         $("#" + card.id).unbind().on("click", function(){ 
           selectedCard = card;
-          displaySelectedCard(card); 
+          displayTrelloCard(); 
         });
       });
     }
 
-    function displaySelectedCard(card){
+    function displayTrelloCard(){
       console.log(selectedCard);
+
+      $trelloCard.find("h3").html(selectedCard.name);
+      $trelloCard.find("span").eq(0).html(selectedBoard.name);
+      $trelloCard.find("span").eq(2).html(selectedList.name);
+
+      $trelloPicker.fadeOut(300, function(){
+        $trelloPicker.css("display", "none");
+      });
+      $startScreen.css("display", "block");
     }
 
     

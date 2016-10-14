@@ -1,0 +1,32 @@
+/* Trello Card */
+#trelloCard{
+  background-color: #FFEFBF;
+  height: 100px;
+  position: absolute;
+  bottom: 40px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.19);
+}
+
+#trelloCard span{
+  display: block;
+  float: left;
+  margin-right: 5px;
+  padding-top: 10px;
+}
+#trelloCard span:nth-child(1){
+  color: #333;
+}
+#trelloCard span:nth-child(2){
+  color: #888;
+}
+#trelloCard span:nth-child(3){
+  color: #444;
+}
+
+#trelloCard h3{
+  padding: 15px;
+  margin-top: 0;
+}
+#trelloCard .col-xs-12.title{
+  cursor: pointer;
+}
