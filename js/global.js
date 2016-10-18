@@ -1,1 +1,3 @@
-console.log("hi");
+// setTimeout(function(){
+//   $("#settings").slideDown();
+// }, 2000);

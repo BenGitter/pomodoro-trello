@@ -1,4 +1,6 @@
-console.log("hi");
+// setTimeout(function(){
+//   $("#settings").slideDown();
+// }, 2000);
 // Trell.rest("GET"|"POST"|"PUT"|"DELETE", path, params (default {}), succes, error)
 
   var selectCard = (function(){

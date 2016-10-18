@@ -24,20 +24,43 @@
     <div class="container-fluid">
       <div class="row">
         <div id="header" class="col-xs-12">
+          <span class="glyphicon glyphicon-cog"></span>
           <h2>Pomodoro Clock</h2>
         </div>
       </div>
     </div>
     <!-- End Header -->
 
-    <!-- Circle -->
-    <svg id="circle-bottom" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <!-- Circles -->
+    <svg id="circle-bottom" class="circle" xmlns="http://www.w3.org/2000/svg" version="1.1">
       <path d="M105,5 A100,100 0 1,1 105,205 A100,100 0 1,1 105,5"
             stroke="#FFD454" 
             fill="none" 
-            stroke-width="3"/>
+            stroke-width="5"/>
+    </svg> 
+
+    <svg id="circle-top" class="circle" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <path d="M105,5 A100,100 0 1,1 105,205 A100,100 0 1,1 105,5"
+            stroke="#C0C0F5" 
+            fill="none" 
+            stroke-width="1"/>
     </svg> 
     <!-- End Circle -->
+
+    <!-- Controls inside circle -->
+    <div id="controls">
+      <h1>25:00</h1>
+      <span class="glyphicon glyphicon-play"></span>
+      <span style="display:none;" class="glyphicon glyphicon-pause"></span>
+      <span class="glyphicon glyphicon-repeat"></span>
+    </div>
+    <!-- End Controls inside circle -->
+
+    <!-- Textbox indicating session or break -->
+    <div id="state">
+      <h3>SESSION</h3>
+    </div>
+    <!-- End Textbox -->
 
     <!-- Trello Card chosen-->
     <div class="container">
@@ -59,8 +82,16 @@
     <!-- End Trello Card -->
 
   </div>
-    
+  <!-- End Start Screen -->
 
+
+  <!-- Settings screen -->
+  <div class="container-fluid row">
+    <div id="settings" class="col-xs-12">
+
+    </div>
+  </div>
+  <!-- End Settings screen -->
   
   
   <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
