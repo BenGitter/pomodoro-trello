@@ -1,3 +1,36 @@
+/* Circle */
+.circle{
+  width: 220px;
+  height: 220px;
+  position: absolute;
+  top: 100px;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+}
+
+
+#controls{
+  margin: auto;
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  text-align: center;
+}
+
+#controls span.glyphicon-repeat{
+  transform: scaleX(-1);
+}
+
+#controls span.glyphicon{
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#controls h1{
+  margin-bottom: 20px;
+}
+
 /*
   Palette:
   http://paletton.com/palette.php?uid=23%2B0u0kd6Qy2-%2Br84WIhyI5luxV
@@ -21,7 +54,7 @@
 
 body{
   padding: 10px 0;
-  background: rgb(150,150,230);
+  background: #9696E6;
   min-height: 500px;
   overflow: hidden;
 }
@@ -31,15 +64,15 @@ body,html{
   height: 100%;
 }
 
-
-/* Circle */
-#circle-bottom{
-  width: 220px;
-  height: 220px;
+#state{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top: 230px;
 }
 /* Header */
 #header{
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(31,31,72,0.6);
   margin-top: -10px;
   text-align: center;
   margin-bottom: 20px;
@@ -48,6 +81,27 @@ body,html{
 #header h2{
   font-weight: bold;
   color: rgba(255,255,255,0.7);
+  float: left;
+}
+#header span.glyphicon{
+  float: right;
+  margin-top: 15px;
+  font-size: 20px;
+  color: rgba(255,239,191,0.7);
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+#header span.glyphicon:hover{
+  transform: rotate(30deg);
+}
+#settings{
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  display: none;
 }
 /* Trello Card */
 #trelloCard{
@@ -81,26 +135,27 @@ body,html{
 #trelloCard .col-xs-12.title{
   cursor: pointer;
 }
-#trelloPicker{
-  min-height: 100%;
-  margin: 0 10px;
-  background-color: white;
-  border-radius: 5px;
-  padding-bottom: 20px;
-  display: none;
+#trelloModalLabel{
+  text-align: center;
+  font-weight: bold;
+  color: #444;
 }
 
-#trelloPicker .glyphicon-remove{
-  padding: 20px 10px;
+.glyphicon-arrow-left{
+  float: left;
+  font-size: 20px;
+  color: #aaa;
   cursor: pointer;
+  visibility: hidden;
 }
-#back{
-  padding: 20px 10px;
-  position: relative;
-  top: 15px;
-  text-decoration: underline;
-  cursor: pointer;
+.glyphicon-arrow-left:hover{
+  color: #555;
 }
+
+button.close{
+  font-size: 30px;
+}
+
 
 .board{
   background-color: #ccc;
@@ -136,3 +191,4 @@ body,html{
 .card:hover{
   background-color: #ccc;
 }
+

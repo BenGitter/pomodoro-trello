@@ -21,7 +21,7 @@
 
 body{
   padding: 10px 0;
-  background: rgb(150,150,230);
+  background: #9696E6;
   min-height: 500px;
   overflow: hidden;
 }
@@ -31,9 +31,9 @@ body,html{
   height: 100%;
 }
 
-
-/* Circle */
-#circle-bottom{
-  width: 220px;
-  height: 220px;
+#state{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top: 230px;
 }

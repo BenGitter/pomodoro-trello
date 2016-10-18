@@ -1,23 +1,24 @@
-#trelloPicker{
-  min-height: 100%;
-  margin: 0 10px;
-  background-color: white;
-  border-radius: 5px;
-  padding-bottom: 20px;
-  display: none;
+#trelloModalLabel{
+  text-align: center;
+  font-weight: bold;
+  color: #444;
 }
 
-#trelloPicker .glyphicon-remove{
-  padding: 20px 10px;
+.glyphicon-arrow-left{
+  float: left;
+  font-size: 20px;
+  color: #aaa;
   cursor: pointer;
+  visibility: hidden;
 }
-#back{
-  padding: 20px 10px;
-  position: relative;
-  top: 15px;
-  text-decoration: underline;
-  cursor: pointer;
+.glyphicon-arrow-left:hover{
+  color: #555;
 }
+
+button.close{
+  font-size: 30px;
+}
+
 
 .board{
   background-color: #ccc;
@@ -53,3 +54,4 @@
 .card:hover{
   background-color: #ccc;
 }
+
