@@ -1,6 +1,8 @@
 // setTimeout(function(){
 //   $("#settings").slideDown();
 // }, 2000);
+
+$("#trelloModal").modal();
 // Trell.rest("GET"|"POST"|"PUT"|"DELETE", path, params (default {}), succes, error)
 
   var selectCard = (function(){
@@ -18,11 +20,14 @@
       name: "Select Trello card..."
     };
 
+    var currentScreen = "boards";
+
     $content = $("#content");
     $back = $("#back");
     $trelloCard = $("#trelloCard");
-    $trelloPicker = $("#trelloPicker");
-    $startScreen = $("#startScreen");
+    $modalTitle = $("#trelloModal .modal-title");
+    $backButton = $(".modal-header .glyphicon-arrow-left");
+    $trelloModal = $("#trelloModal");
 
     function init(){
       authorize();
@@ -40,27 +45,13 @@
     }
 
     function events(){
-      // Close pop-up
-      $(".glyphicon-remove").on("click", function(){
-        displayTrelloCard();
-      });
-
-      // Go back to lists or boards
-      $("#back").on("click", function(){
-        if($(this).html() === "Back to lists"){
-          displayLists(selectedBoard.id);
-        }else{
-          displayBoards();
-        }
-      });
-
-      // Open pop-up
+      // Open modal
       $trelloCard.on("click", function(){
-        $trelloPicker.fadeIn(300, function(){
-          $trelloPicker.css("display", "block");
-        });
-        $startScreen.css("display", "none");
+        $trelloModal.modal();
       });
+
+      // Change modal title
+      
     }
 
     // Authorize user - then loadBoards
@@ -141,37 +132,43 @@
 
     function displayBoards(){
       $content.empty();
-      //$back.html("<span>Boards</span>");
+      currentScreen = "boards";
 
+      updateHeader();
+      
       $.each(Boards, function(i, board){
         $content.append("<div class='board col-xs-12' id='" + board.id + "'><h3>" + board.name + "</h3></div>");
       
         // Add event listener 
         $("#" + board.id).unbind().on("click", function(){ 
-          displayLists(board.id); 
           selectedBoard = board;
+          displayLists(board.id); 
         });
       });
     }
 
     function displayLists(boardId){
       $content.empty();
-      $back.html("Back to boards");
+      currentScreen = "lists";
+
+      updateHeader();
 
       $.each(Lists[boardId], function(i, list){
         $content.append("<div class='list col-xs-12' id='" + list.id + "'>" + list.name + "</div>");
 
         // Add event listener 
         $("#" + list.id).unbind().on("click", function(){ 
+          selectedList = list;
           displayCards(list.id);
-          selectedList = list; 
         });
       });
     }
 
     function displayCards(listId){
       $content.empty();
-      $back.html("Back to lists");
+      currentScreen = "cards";
+
+      updateHeader();
 
       $.each(Cards[listId], function(i, card){
         $content.append("<div class='card col-xs-12' id='" + card.id + "'>" + card.name + "</div>");
@@ -191,10 +188,30 @@
       $trelloCard.find("span").eq(0).html(selectedBoard.name);
       $trelloCard.find("span").eq(2).html(selectedList.name);
 
-      $trelloPicker.fadeOut(300, function(){
-        $trelloPicker.css("display", "none");
-      });
-      $startScreen.css("display", "block");
+      // Close modal
+      $trelloModal.modal("hide");
+    }
+
+    function updateHeader(){
+      if(currentScreen === "boards"){
+        $backButton.css("visibility", "hidden");
+        $modalTitle.html("Boards");
+      }else{
+        $backButton.css("visibility", "visible");
+        if(currentScreen === "lists"){
+          $backButton.on("click", function(){
+            displayBoards();
+          });
+
+          $modalTitle.html(selectedBoard.name);
+        }else{
+          $backButton.on("click", function(){
+            displayLists(selectedBoard.id);
+          });
+
+          $modalTitle.html(selectedList.name);
+        }
+      }
     }
 
     

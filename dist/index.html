@@ -9,13 +9,36 @@
 <body>
 
   <!-- Trello Card Picker pop-up -->
-  <div id="trelloPicker" class="container-fluid">
+  <!--<div id="trelloPicker" class="container-fluid">
     <span id="back"></span>
     <span class="pull-right glyphicon glyphicon-remove"></span>
     <div id="content" class="row">
-      <!-- Changeable content -->
+      
+    </div>
+  </div>-->
+
+  <div class="modal fade" id="trelloModal" tabindex="-1" role="dialog" aria-labelledby="trelloModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="trelloModalLabel">Boards</h4>
+        </div>
+        <div class="modal-body" id="content">
+          ...
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
     </div>
   </div>
+
+  <!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#trelloModal">
+    Launch demo modal
+  </button>-->
+  <!-- End Trello Card Picker modal -->
 
   <!-- Start Screen -->
   <div id="startScreen">
@@ -72,7 +95,7 @@
             <span>List</span>
           </div>
 
-          <div class="col-xs-12 title text-center">
+          <div class="col-xs-12 title text-center" >
             <h3>Card title</h3>
           </div>
 
@@ -94,7 +117,15 @@
   <!-- End Settings screen -->
   
   
-  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+    crossorigin="anonymous">
+  </script>
   <script src="https://api.trello.com/1/client.js?key=dbb4a861a401e87c546e9e8c9021f9e7"></script>
   <script src="script.js"></script>
 </body>

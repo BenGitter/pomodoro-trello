@@ -1,0 +1,21 @@
+#controls{
+  margin: auto;
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  text-align: center;
+}
+
+#controls span.glyphicon-repeat{
+  transform: scaleX(-1);
+}
+
+#controls span.glyphicon{
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#controls h1{
+  margin-bottom: 20px;
+}
