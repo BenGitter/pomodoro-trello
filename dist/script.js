@@ -2,7 +2,9 @@
 //   $("#settings").slideDown();
 // }, 2000);
 
-$("#trelloModal").modal();
+setTimeout(function(){
+  $("#trelloModal").modal("show");
+}, 1000);
 // Trell.rest("GET"|"POST"|"PUT"|"DELETE", path, params (default {}), succes, error)
 
   var selectCard = (function(){
@@ -21,6 +23,18 @@ $("#trelloModal").modal();
     };
 
     var currentScreen = "boards";
+
+    var trelloColors = {
+      "blue":   { "board": "#0067A2", "list": "rgba(0,103,162, 0.2)"  },
+      "orange": { "board": "#B37A2C", "list": "rgba(197,122,44, 0.2)" },
+      "green":  { "board": "#458130", "list": "rgba(69,129,48, 0.2)"  },
+      "red":    { "board": "#963B2A", "list": "rgba(150,59,42, 0.2)"  },
+      "purple": { "board": "#745286", "list": "rgba(116,82,134, 0.2)" },
+      "pink":   { "board": "#AE4C7B", "list": "rgba(174,76,123, 0.5)" },
+      "lime":   { "board": "#40A25B", "list": "rgba(64,162,91, 0.5)"  },
+      "sky":    { "board": "#0094AD", "list": "rgba(0,148,173, 0.5)"  },
+      "grey":   { "board": "#62696D", "list": "rgba(98,105,109, 0.5)" }
+    };
 
     $content = $("#content");
     $back = $("#back");
@@ -137,8 +151,11 @@ $("#trelloModal").modal();
       updateHeader();
       
       $.each(Boards, function(i, board){
-        $content.append("<div class='board col-xs-12' id='" + board.id + "'><h3>" + board.name + "</h3></div>");
-      
+        var div = $("<div class='board col-xs-12' id='" + board.id + "'><h3>" + board.name + "</h3></div>");
+        div.css("background-color", trelloColors[board.prefs.background].board);
+
+        $content.append(div);
+        
         // Add event listener 
         $("#" + board.id).unbind().on("click", function(){ 
           selectedBoard = board;
@@ -154,7 +171,9 @@ $("#trelloModal").modal();
       updateHeader();
 
       $.each(Lists[boardId], function(i, list){
-        $content.append("<div class='list col-xs-12' id='" + list.id + "'>" + list.name + "</div>");
+        var div = $("<div class='list col-xs-12' id='" + list.id + "'>" + list.name + "</div>");
+
+        $content.append(div);
 
         // Add event listener 
         $("#" + list.id).unbind().on("click", function(){ 
@@ -162,6 +181,9 @@ $("#trelloModal").modal();
           displayCards(list.id);
         });
       });
+
+      $(".list").css("background-color", trelloColors[selectedBoard.prefs.background].list);
+
     }
 
     function displayCards(listId){
@@ -172,13 +194,20 @@ $("#trelloModal").modal();
 
       $.each(Cards[listId], function(i, card){
         $content.append("<div class='card col-xs-12' id='" + card.id + "'>" + card.name + "</div>");
-
+        console.log($("#" + card.id).outerHeight());
         // Add event listener
         $("#" + card.id).unbind().on("click", function(){ 
           selectedCard = card;
           displayTrelloCard(); 
         });
       });
+
+      var height = Cards[listId].length * 50 + 10;
+      
+      $("#content")
+        .height(height)
+        .css("background", trelloColors[selectedBoard.prefs.background].list);
+
     }
 
     function displayTrelloCard(){
@@ -212,6 +241,8 @@ $("#trelloModal").modal();
           $modalTitle.html(selectedList.name);
         }
       }
+
+      $("#content").css("background-color", "inherit");
     }
 
     

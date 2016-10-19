@@ -2,4 +2,6 @@
 //   $("#settings").slideDown();
 // }, 2000);
 
-$("#trelloModal").modal();
+setTimeout(function(){
+  $("#trelloModal").modal("show");
+}, 1000);
