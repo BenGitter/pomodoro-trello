@@ -33,10 +33,6 @@
       </div>
     </div>
   </div>
-
-  <!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#trelloModal">
-    Launch demo modal
-  </button>-->
   <!-- End Trello Card Picker modal -->
 
   <!-- Start Screen -->
@@ -108,10 +104,32 @@
 
 
   <!-- Settings screen -->
-  <div class="container-fluid row">
-    <div id="settings" class="col-xs-12">
+  <div class="container-fluid">
+    <div id="settings" class="row">
+      <div class="col-xs-12 text-center header">Settings <span class="glyphicon glyphicon-chevron-down pull-right"></span></div>
 
-    </div>
+      <div class="col-xs-6 text-center">
+        <div class="col-xs-12">Session length:</div>
+        <div class="col-xs-12 time">
+          <span class="minus">&minus;</span>
+          25:00
+          <span class="plus">&#43;</span>
+        </div>
+
+        <div class="col-xs-12">Break length:</div>
+        <div class="col-xs-12 time">
+          <span class="minus">&minus;</span>
+          5:00
+          <span class="plus">&#43;</span>
+        </div>
+      </div>
+
+      <div class="col-xs-6 trelloSettings">
+        <div class="col-xs-12">If I complete a Trello card:</div>
+        <div class="col-xs-12"><span class="option">Delete card</span></div>
+        <div class="col-xs-12"><span class="option">Move card to <span class="dest">list</span></span></div>
+      </div>
+
   </div>
   <!-- End Settings screen -->
   

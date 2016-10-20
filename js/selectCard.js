@@ -18,15 +18,15 @@
     var currentScreen = "boards";
 
     var trelloColors = {
-      "blue":   { "board": "#0067A2", "list": "rgba(0,103,162, 0.2)"  },
-      "orange": { "board": "#B37A2C", "list": "rgba(197,122,44, 0.2)" },
-      "green":  { "board": "#458130", "list": "rgba(69,129,48, 0.2)"  },
-      "red":    { "board": "#963B2A", "list": "rgba(150,59,42, 0.2)"  },
-      "purple": { "board": "#745286", "list": "rgba(116,82,134, 0.2)" },
-      "pink":   { "board": "#AE4C7B", "list": "rgba(174,76,123, 0.5)" },
-      "lime":   { "board": "#40A25B", "list": "rgba(64,162,91, 0.5)"  },
-      "sky":    { "board": "#0094AD", "list": "rgba(0,148,173, 0.5)"  },
-      "grey":   { "board": "#62696D", "list": "rgba(98,105,109, 0.5)" }
+      "blue":   { "board": "#0067A2", "list": "rgba(0,103,162, 0.4)"  },
+      "orange": { "board": "#B37A2C", "list": "rgba(197,122,44, 0.4)" },
+      "green":  { "board": "#458130", "list": "rgba(69,129,48, 0.4)"  },
+      "red":    { "board": "#963B2A", "list": "rgba(150,59,42, 0.4)"  },
+      "purple": { "board": "#745286", "list": "rgba(116,82,134, 0.4)" },
+      "pink":   { "board": "#AE4C7B", "list": "rgba(174,76,123, 0.4)" },
+      "lime":   { "board": "#40A25B", "list": "rgba(64,162,91, 0.4)"  },
+      "sky":    { "board": "#0094AD", "list": "rgba(0,148,173, 0.4)"  },
+      "grey":   { "board": "#62696D", "list": "rgba(98,105,109, 0.4)" }
     };
 
     $content = $("#content");
@@ -187,7 +187,7 @@
 
       $.each(Cards[listId], function(i, card){
         $content.append("<div class='card col-xs-12' id='" + card.id + "'>" + card.name + "</div>");
-        console.log($("#" + card.id).outerHeight());
+
         // Add event listener
         $("#" + card.id).unbind().on("click", function(){ 
           selectedCard = card;

@@ -1,8 +1,62 @@
 #settings{
   width: 100%;
   height: 200px;
-  background-color: white;
+  background-color: #FFEFBF;
   position: fixed;
   bottom: 0;
   display: none;
+}
+
+#settings .header{
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px;
+  border-top: 3px solid #FFE597;
+  border-bottom: 3px solid #FFE597;
+  background-color: #ffeaab;
+  margin-bottom: 10px;
+}
+
+#settings .time{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 1px 0 12px 0;
+}
+
+#settings .minus{
+  float: left;
+}
+#settings .plus{
+  float: right;
+}
+#settings .plus, #settings .minus{
+  padding: 5px;
+  cursor: pointer;
+  margin-top: -5px;
+}
+
+#settings .trelloSettings, {
+  padding: 0;
+}
+#settings .trelloSettings .col-xs-12{
+  padding-left: 0;
+}
+
+#settings span.option{
+  display: block;
+  margin-top: 5px;
+  padding-left: 3px;
+  border: 1px solid #FFDC73;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#settings span.dest{
+  border-bottom: 1px dotted black;
+  cursor: pointer;
+}
+
+#settings .glyphicon-chevron-down{
+  margin: 3px;
+  cursor: pointer;
 }
